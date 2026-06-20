@@ -46,6 +46,21 @@ function HomeScreen({ onOpen, favs, toggleFav, cat, setCat, onSearch }) {
         ))}
       </div>
 
+      {/* Banner vender */}
+      <div style={{ margin: '0 16px 22px', borderRadius: 'var(--radius-xl)', background: 'linear-gradient(120deg, var(--taupe-300), var(--taupe-200))', border: '1px solid var(--border-subtle)', padding: '20px 20px 18px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', right: -10, top: -10, fontSize: 72, opacity: .12, lineHeight: 1 }}>👗</div>
+        <div className="lp-eyebrow" style={{ color: 'var(--text-subtle)', marginBottom: 6 }}>¿Tenés ropa que ya no usás?</div>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--ink-900)', lineHeight: 1.15, marginBottom: 8 }}>
+          Vendela en La Percha
+        </div>
+        <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--text-body)', lineHeight: 1.55, maxWidth: 260 }}>
+          Publicá tus prendas y llegá a toda la comunidad. Vos te quedás con el <strong>80%</strong> de cada venta — el 20% restante es la comisión de La Percha.
+        </p>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--ink-900)', color: '#fff', padding: '9px 16px', borderRadius: 'var(--radius-pill)', fontSize: 13, fontWeight: 700 }}>
+          Empezar a vender {I.chevron(15)}
+        </span>
+      </div>
+
       {/* Feria de Ropa grid */}
       <SectionHeader title="Feria de Ropa" sub="De la comunidad" icon={I.heart(17)} />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, padding: '0 16px' }}>
