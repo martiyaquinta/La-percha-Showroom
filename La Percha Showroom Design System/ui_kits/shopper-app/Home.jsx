@@ -1,5 +1,5 @@
 // Home screen — La Percha Showroom shopper app
-function HomeScreen({ onOpen, favs, toggleFav, cat, setCat, onSearch }) {
+function HomeScreen({ onOpen, favs, toggleFav, cat, setCat, onSearch, onSell }) {
   const DS = window.LaPerchaShowroomDesignSystem_72de99;
   const { ProductCard, FilterChip, Badge } = DS;
   const D = window.LP_DATA;
@@ -56,9 +56,9 @@ function HomeScreen({ onOpen, favs, toggleFav, cat, setCat, onSearch }) {
         <p style={{ margin: '0 0 14px', fontSize: 13, color: 'var(--text-body)', lineHeight: 1.55, maxWidth: 260 }}>
           Publicá tus prendas y llegá a toda la comunidad. Vos te quedás con el <strong>80%</strong> de cada venta — el 20% restante es la comisión de La Percha.
         </p>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--ink-900)', color: '#fff', padding: '9px 16px', borderRadius: 'var(--radius-pill)', fontSize: 13, fontWeight: 700 }}>
+        <button onClick={onSell} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'var(--ink-900)', color: '#fff', padding: '9px 16px', borderRadius: 'var(--radius-pill)', fontSize: 13, fontWeight: 700, border: 'none', cursor: 'pointer', fontFamily: 'var(--font-ui)' }}>
           Empezar a vender {I.chevron(15)}
-        </span>
+        </button>
       </div>
 
       {/* Feria de Ropa grid */}

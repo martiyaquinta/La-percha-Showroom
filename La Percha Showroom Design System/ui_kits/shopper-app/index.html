@@ -108,7 +108,7 @@ function App() {
   } else if (tab === 'fav') {
     content = <window.FavScreen favs={favs} toggleFav={toggleFav} onOpen={openProduct} onExplore={goHome} />;
   } else {
-    content = <window.HomeScreen onOpen={openProduct} favs={favs} toggleFav={toggleFav} cat={cat} setCat={setCat} onSearch={() => setRoute({ name: 'search' })} />;
+    content = <window.HomeScreen onOpen={openProduct} favs={favs} toggleFav={toggleFav} cat={cat} setCat={setCat} onSearch={() => setRoute({ name: 'search' })} onSell={goSell} />;
   }
 
   const fullScreen = ['product','cart','confirm','search','register','seller-onboarding','publish'].includes(route.name);
