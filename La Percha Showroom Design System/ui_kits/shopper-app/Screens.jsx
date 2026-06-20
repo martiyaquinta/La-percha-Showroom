@@ -102,12 +102,41 @@ function SearchScreen({ onBack, onOpen }) {
 }
 
 // ─── Profile ─────────────────────────────────────────────────────────────────
-function ProfileScreen() {
+function ProfileScreen({ userState, onRegister }) {
   const DS = window.LaPerchaShowroomDesignSystem_72de99;
   const { StatusPill, Button } = DS;
   const I = window.LPIcons;
 
-  const user = { name: 'Martina Yaquinta', phone: '+54 9 291 555-1234', initial: 'M', isSeller: true };
+  // Estado sin sesión
+  if (!userState || userState === 'guest') {
+    return (
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px 32px', gap: 0 }}>
+        <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'var(--sage-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
+          {_ico.user(32)}
+        </div>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--text-strong)', textAlign: 'center', marginBottom: 10 }}>
+          Tu perfil
+        </div>
+        <div style={{ fontSize: 14, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.6, marginBottom: 32 }}>
+          Registrate para ver tus pedidos, guardar favoritos y vender ropa.
+        </div>
+        <button
+          onClick={onRegister}
+          style={{ width: '100%', maxWidth: 280, height: 50, background: 'var(--sage-700)', color: '#fff', border: 'none', borderRadius: 'var(--radius-pill)', fontFamily: 'var(--font-ui)', fontSize: 15, fontWeight: 700, cursor: 'pointer', marginBottom: 12 }}
+        >
+          Registrarme
+        </button>
+        <button
+          onClick={onRegister}
+          style={{ background: 'none', border: 'none', fontFamily: 'var(--font-ui)', fontSize: 14, color: 'var(--text-muted)', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: 3 }}
+        >
+          Ya tengo cuenta
+        </button>
+      </div>
+    );
+  }
+
+  const user = { name: 'Usuaria', phone: '', initial: 'U', isSeller: userState === 'seller' };
   const orders = [
     { id: '#LP-2841', desc: 'Vestido de lino + Campera jean', total: '$45.400', status: 'enviado', date: '18 jun' },
     { id: '#LP-2794', desc: 'Set de mates artesanales', total: '$12.500', status: 'entregado', date: '10 jun' },

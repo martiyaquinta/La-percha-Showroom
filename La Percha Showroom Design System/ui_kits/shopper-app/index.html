@@ -98,7 +98,7 @@ function App() {
   } else if (route.name === 'search') {
     content = <window.SearchScreen onBack={goHome} onOpen={openProduct} />;
   } else if (route.name === 'profile') {
-    content = <window.ProfileScreen />;
+    content = <window.ProfileScreen userState={userState} onRegister={() => setRoute({ name: 'register' })} />;
   } else if (route.name === 'register') {
     content = <window.RegisterScreen onBack={goHome} onRegistered={() => { setUserState('registered'); goHome(); showToast('¡Bienvenida a La Percha!'); }} />;
   } else if (route.name === 'seller-onboarding') {
