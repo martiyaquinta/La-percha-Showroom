@@ -156,7 +156,7 @@ export default function ProductoPage({ params }: { params: Promise<{ id: string 
             lg:px-0 lg:max-w-full z-10">
             <button
               onClick={handleAddToCart}
-              disabled={false}
+              disabled={!selectedSize}
               className={`flex items-center justify-center gap-2.5 w-full h-13
                 font-semibold rounded-lg transition-colors
                 ${!selectedSize
