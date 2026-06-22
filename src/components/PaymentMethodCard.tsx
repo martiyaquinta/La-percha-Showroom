@@ -14,7 +14,7 @@ export function PaymentMethodCard({ id, value, selected, onChange, label, descri
     <label htmlFor={id}
       className={`block cursor-pointer rounded-xl border-2 p-4 transition-colors
         ${isSelected
-          ? 'border-brand bg-sage-50'
+          ? 'border-brand bg-matcha-50'
           : 'border-border-subtle hover:border-border-default'}`}>
       <div className="flex items-center gap-3">
         <input

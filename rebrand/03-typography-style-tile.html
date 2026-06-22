@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Percha Showroom — Typography & Style Tile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Marcellus&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,sans-serif;background:#f5f2ee;color:#3d2e1a;line-height:1.6;-webkit-font-smoothing:antialiased;padding:48px 32px}
+  .container{max-width:1200px;margin:0 auto}
+  h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:500;margin-bottom:8px}
+  h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;margin:48px 0 20px;color:#809671}
+  .subtitle{color:#9b8c78;font-weight:300;font-size:1.05rem;margin-bottom:40px}
+
+  .font-compare{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
+  .font-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(61,46,26,0.05)}
+  .font-card h3{font-size:1.1rem;font-weight:600;margin-bottom:20px}
+  .font-sample{margin-bottom:24px}
+  .font-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#9b8c78;font-weight:600;margin-bottom:8px}
+  .font-render{padding:12px 0}
+  .font-notes{font-size:0.78rem;color:#725C3A;margin-top:8px;line-height:1.5}
+
+  .heading-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:32px}
+  .ui-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+
+  /* Style Tile */
+  .style-tile{background:#fff;border-radius:16px;padding:40px;box-shadow:0 1px 3px rgba(61,46,26,0.05);margin-top:32px}
+  .tile-section{margin-bottom:36px}
+  .tile-section h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:#2e251a;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e8e4dc}
+
+  .color-dots{display:flex;gap:40px;flex-wrap:wrap}
+  .color-dot{display:flex;align-items:center;gap:12px}
+  .color-circle{width:44px;height:44px;border-radius:12px;flex-shrink:0}
+  .color-info{font-size:0.78rem}
+  .color-info strong{display:block;font-size:0.85rem}
+
+  .type-scale{display:flex;flex-direction:column;gap:12px}
+  .type-row{display:flex;align-items:baseline;gap:16px;padding:8px 0;border-bottom:1px solid #f5f2ee}
+  .type-name{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:#9b8c78;width:80px;flex-shrink:0}
+  .type-preview{font-family:'Playfair Display',serif;color:#2e251a}
+
+  .ui-kit{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 24px;border-radius:100px;font-family:Inter,sans-serif;font-size:0.85rem;font-weight:500;border:none;cursor:pointer;transition:all 0.2s}
+  .btn-primary{background:#809671;color:#fff}
+  .btn-primary:hover{background:#6a7e5d}
+  .btn-secondary{background:#E5E0D8;color:#5c4930;border:1px solid #c4baac}
+  .btn-outline{background:transparent;color:#5c4930;border:1.5px solid #c4baac}
+  .btn-ghost{background:transparent;color:#809671}
+
+  .badge{display:inline-flex;padding:4px 14px;border-radius:100px;font-family:Inter,sans-serif;font-size:0.75rem;font-weight:600}
+  .badge-brand{background:#809671;color:#fff}
+  .badge-subtle{background:#E5E0D8;color:#5c4930}
+
+  .input-demo{width:240px;padding:10px 16px;border:1.5px solid #c4baac;border-radius:12px;font-family:Inter,sans-serif;font-size:0.85rem;outline:none;background:#faf7f2}
+  .input-demo:focus{border-color:#809671}
+
+  .card-demo{width:160px;border-radius:14px;overflow:hidden;border:1px solid #e8e4dc;background:#fff}
+  .card-img{aspect-ratio:3/4;background:#E5E0D8;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#9b8c78}
+  .card-body{padding:10px 12px}
+  .card-body .card-brand{font-size:0.65rem;color:#a39584;text-transform:uppercase;letter-spacing:0.05em}
+  .card-body .card-title{font-size:0.82rem;font-weight:600;margin:2px 0}
+  .card-body .card-price{font-weight:700;font-size:0.85rem}
+
+  .chat-bubble{max-width:260px;padding:12px 16px;border-radius:16px 16px 16px 4px;font-size:0.82rem;line-height:1.45}
+  .chat-sent{background:#809671;color:#fff}
+  .chat-received{background:#E5E0D8;color:#3d2e1a;border-radius:16px 16px 4px 16px}
+
+  .rec{display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;color:#809671;font-weight:600}
+  .rec::before{content:'✓';font-size:0.9rem}
+
+  .winner-badge{display:inline-block;background:#eef4ea;color:#809671;padding:6px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;margin-left:12px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Tipografía &amp; Style Tile</h1>
+<p class="subtitle">Comparativa de fuentes en contexto real + ficha visual consolidada</p>
+
+<!-- ========== HEADING FONT COMPARISON ========== -->
+<h2>Heading Font — Display / Editorial</h2>
+<div class="heading-row">
+  <div class="font-card">
+    <div class="font-label">Actual</div>
+    <div class="font-render" style="font-family:'Marcellus',serif;font-size:2.5rem;line-height:1.15;letter-spacing:-0.01em">Marcellus</div>
+    <div class="font-render" style="font-family:'Marcellus',serif;font-size:1.3rem;font-weight:400">La Percha Showroom — Moda Circular</div>
+    <div class="font-notes">Serif condensada, single weight (400). Elegante pero limitada: solo un peso, no tiene italic verdadero. Se siente más "boutique local" que "editorial premium".</div>
+  </div>
+  <div class="font-card" style="border:2px solid #809671;">
+    <div class="font-label">Recomendada <span class="winner-badge">★ Elegir</span></div>
+    <div class="font-render" style="font-family:'Playfair Display',serif;font-size:2.5rem;line-height:1.15;letter-spacing:-0.01em">Playfair Display</div>
+    <div class="font-render" style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400">La Percha Showroom — Moda Circular</div>
+    <div class="font-render" style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;font-style:italic"><em>Colección Verano — Curada para vos</em></div>
+    <div class="font-notes">Serif editorial por excelencia. 6 pesos (400–700) + italic verdadero. Alta legibilidad, alto contraste, elegancia clásica. Usada por Vogue, Zara editorial, marcas premium.</div>
+  </div>
+  <div class="font-card">
+    <div class="font-label">Alternativa</div>
+    <div class="font-render" style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1.15;letter-spacing:-0.01em">Cormorant Garamond</div>
+    <div class="font-render" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400">La Percha Showroom — Moda Circular</div>
+    <div class="font-render" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;font-style:italic"><em>Colección Verano — Curada para vos</em></div>
+    <div class="font-notes">Garamond contemporánea. Muy elegante, más delicada que Playfair. Excelente para moda pero puede ser <em>demasiado</em> fina en pantalla.</div>
+  </div>
+</div>
+
+<!-- ========== UI FONT COMPARISON ========== -->
+<h2>UI Font — Body / Funcional</h2>
+<div class="ui-row">
+  <div class="font-card">
+    <div class="font-label">Actual</div>
+    <div style="font-family:'Mulish',sans-serif;font-weight:400;font-size:0.95rem;margin-bottom:12px">Tu espacio de moda circular y accesorios en un solo lugar. Comprá ropa, vendé lo que ya no usás, y conectá con una comunidad que comparte tu estilo.</div>
+    <div style="font-family:'Mulish',sans-serif;font-weight:600;font-size:0.85rem">Mulish Regular / Semibold</div>
+    <div class="font-notes" style="margin-top:8px">Humanista, cálida, amigable. Buen rango de pesos (300–800). Se siente más "startup amigable" que "moda editorial".</div>
+  </div>
+  <div class="font-card" style="border:2px solid #809671;">
+    <div class="font-label">Recomendada <span class="winner-badge">★ Elegir</span></div>
+    <div style="font-family:'Inter',sans-serif;font-weight:350;font-size:0.95rem;margin-bottom:12px">Tu espacio de moda circular y accesorios en un solo lugar. Comprá ropa, vendé lo que ya no usás, y conectá con una comunidad que comparte tu estilo.</div>
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:0.85rem">Inter Regular / Medium</div>
+    <div class="font-notes" style="margin-top:8px">Neo-grotesque precisa, neutra, excelente legibilidad. La fuente del diseño editorial moderno. Alta versatilidad en todos los pesos. No compite con la display.</div>
+  </div>
+</div>
+
+<!-- ========== ALTERNATIVE COMPARISON ========== -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:48px">
+  <div class="font-card">
+    <div class="font-label">Opción B</div>
+    <div style="font-family:'Manrope',sans-serif;font-weight:400;font-size:0.95rem;margin-bottom:8px">Tu espacio de moda circular. Comprá, vendé, conectá.</div>
+    <div class="font-notes">Geométrica, moderna, ligeramente técnica. Funciona bien para datos/precios pero menos cálida para comunidad.</div>
+  </div>
+  <div class="font-card">
+    <div class="font-label">Opción C</div>
+    <div style="font-family:'Inter',sans-serif;font-weight:350;font-size:0.95rem;margin-bottom:8px">Tu espacio de moda circular. Comprá, vendé, conectá.</div>
+    <div class="font-notes">La más versátil. Display en pantalla óptimo. Usada por Stripe, Figma, Vercel. La elección segura para UI editorial.</div>
+  </div>
+  <div class="font-card">
+    <div class="font-label">Combinación ganadora</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600">La Percha Showroom</div>
+      <div style="font-family:Inter,sans-serif;font-weight:350;font-size:0.85rem;color:#725C3A">Moda circular · Comunidad · Confianza</div>
+      <div style="font-family:Inter,sans-serif;font-weight:500;font-size:0.75rem;color:#809671">$16.200</div>
+    </div>
+    <div class="font-notes" style="margin-top:8px"><span class="rec">Playfair Display + Inter</span><br>Contraste editorial perfecto: serif con carácter + sans precisa. La combinación que usan las marcas de moda premium.</div>
+  </div>
+</div>
+
+<!-- ========== STYLE TILE ========== -->
+<h2>Style Tile — Ficha Visual Consolidada</h2>
+<div class="style-tile">
+
+  <!-- Colors -->
+  <div class="tile-section">
+    <h3>Paleta</h3>
+    <div class="color-dots">
+      <div class="color-dot">
+        <div class="color-circle" style="background:#809671"></div>
+        <div class="color-info"><strong>Matcha</strong>#809671<br>Brand / Primary</div>
+      </div>
+      <div class="color-dot">
+        <div class="color-circle" style="background:#B3B792"></div>
+        <div class="color-info"><strong>Pistache</strong>#B3B792<br>Accent</div>
+      </div>
+      <div class="color-dot">
+        <div class="color-circle" style="background:#D2AB80"></div>
+        <div class="color-info"><strong>Chai</strong>#D2AB80<br>Warm accent</div>
+      </div>
+      <div class="color-dot">
+        <div class="color-circle" style="background:#725C3A"></div>
+        <div class="color-info"><strong>Carob</strong>#725C3A<br>Text / Depth</div>
+      </div>
+      <div class="color-dot">
+        <div class="color-circle" style="background:#E5E0D8;border:1px solid #d5cec4"></div>
+        <div class="color-info"><strong>Almond</strong>#E5E0D8<br>Background</div>
+      </div>
+      <div class="color-dot">
+        <div class="color-circle" style="background:#E5D2B8;border:1px solid #d5cec4"></div>
+        <div class="color-info"><strong>Vanilla</strong>#E5D2B8<br>Surface alt</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div class="tile-section">
+    <h3>Tipografía</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+      <div>
+        <div class="font-label">Display — Playfair Display</div>
+        <div class="type-scale">
+          <div class="type-row"><span class="type-name">Hero</span><span class="type-preview" style="font-size:3rem;font-weight:600">La Percha</span></div>
+          <div class="type-row"><span class="type-name">H1</span><span class="type-preview" style="font-size:2rem;font-weight:500">Showroom</span></div>
+          <div class="type-row"><span class="type-name">H2</span><span class="type-preview" style="font-size:1.5rem;font-weight:500">Colección Verano</span></div>
+          <div class="type-row"><span class="type-name">H3</span><span class="type-preview" style="font-size:1.2rem;font-weight:500">Falda midi taupe</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="font-label">UI — Inter</div>
+        <div class="type-scale" style="font-family:Inter,sans-serif">
+          <div class="type-row"><span class="type-name">Body</span><span style="font-size:0.95rem;font-weight:350">Moda circular y accesorios en un solo lugar</span></div>
+          <div class="type-row"><span class="type-name">Label</span><span style="font-size:0.78rem;font-weight:500;text-transform:uppercase;letter-spacing:0.04em;color:#725C3A">Tienda Oficial</span></div>
+          <div class="type-row"><span class="type-name">Price</span><span style="font-size:1rem;font-weight:600">$16.200</span></div>
+          <div class="type-row"><span class="type-name">Caption</span><span style="font-size:0.72rem;font-weight:400;color:#a39584">Nuevo con etiqueta</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UI Components -->
+  <div class="tile-section">
+    <h3>Componentes UI</h3>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="ui-kit">
+        <button class="btn btn-primary">Comprar</button>
+        <button class="btn btn-secondary">Guardar</button>
+        <button class="btn btn-outline">Contactar</button>
+        <button class="btn btn-ghost">Cancelar</button>
+      </div>
+      <div class="ui-kit">
+        <span class="badge badge-brand">Nuevo</span>
+        <span class="badge badge-subtle">Envío gratis</span>
+        <span class="badge" style="background:#f9f3eb;color:#a37a52">Único</span>
+      </div>
+      <div class="ui-kit">
+        <input class="input-demo" placeholder="Buscar productos..." value="">
+      </div>
+      <div class="ui-kit">
+        <div class="card-demo">
+          <div class="card-img">img</div>
+          <div class="card-body">
+            <div class="card-brand">Tienda Oficial</div>
+            <div class="card-title">Falda midi taupe</div>
+            <div class="card-price">$16.200</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="chat-bubble chat-sent">Hola! Me interesa la falda, ¿tenés talle M?</div>
+          <div class="chat-bubble chat-received">Sí! Está disponible. Te la puedo enviar mañana :)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spacing & Effects -->
+  <div class="tile-section">
+    <h3>Espaciado &amp; Efectos</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div>
+        <div class="font-label">Radios</div>
+        <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+          <div style="width:36px;height:36px;background:#809671;border-radius:4px"></div>
+          <div style="width:36px;height:36px;background:#809671;border-radius:8px"></div>
+          <div style="width:36px;height:36px;background:#809671;border-radius:12px"></div>
+          <div style="width:36px;height:36px;background:#809671;border-radius:16px"></div>
+          <div style="width:36px;height:36px;background:#809671;border-radius:999px"></div>
+        </div>
+        <div style="display:flex;gap:8px;font-size:0.65rem;color:#9b8c78;margin-top:4px">
+          <span style="width:36px;text-align:center">4</span>
+          <span style="width:36px;text-align:center">8</span>
+          <span style="width:36px;text-align:center">12</span>
+          <span style="width:36px;text-align:center">16</span>
+          <span style="width:36px;text-align:center">∞</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-label">Sombras (warm, nunca negro puro)</div>
+        <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+          <div style="padding:10px;background:#fff;border-radius:8px;box-shadow:0 1px 2px rgba(61,46,26,0.06)">xs — sutil</div>
+          <div style="padding:10px;background:#fff;border-radius:8px;box-shadow:0 4px 14px rgba(61,46,26,0.08)">md — card</div>
+          <div style="padding:10px;background:#fff;border-radius:8px;box-shadow:0 14px 32px rgba(61,46,26,0.10)">lg — modal</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-label">Animaciones</div>
+        <div style="margin-top:8px;font-size:0.8rem;color:#725C3A">
+          <div>fast: 140ms</div>
+          <div>base: 220ms</div>
+          <div>slow: 340ms</div>
+          <div style="margin-top:4px">ease-out · ease-in-out</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spacing Scale -->
+  <div class="tile-section">
+    <h3>Grid &amp; Breakpoints</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div>
+        <div class="font-label">Espaciado (4px base)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+          <div style="width:4px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:8px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:12px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:16px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:24px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:32px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:48px;height:4px;background:#809671;border-radius:1px"></div>
+          <div style="width:64px;height:4px;background:#809671;border-radius:1px"></div>
+        </div>
+        <div style="display:flex;gap:4px;font-size:0.6rem;color:#9b8c78;margin-top:4px;flex-wrap:wrap">
+          <span>4</span><span>8</span><span>12</span><span>16</span><span>24</span><span>32</span><span>48</span><span>64</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-label">Breakpoints</div>
+        <div style="margin-top:8px;font-size:0.8rem;color:#725C3A">
+          <div>Mobile: 320–767px</div>
+          <div>Tablet: 768–1023px</div>
+          <div>Desktop: 1024px+</div>
+          <div style="margin-top:4px">Max container: 1280px</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-label">Tap targets</div>
+        <div style="margin-top:8px;font-size:0.8rem;color:#725C3A">
+          <div>Min: 44px</div>
+          <div>Comfortable: 48px</div>
+          <div>Bottom nav: 64px</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</body>
+</html>

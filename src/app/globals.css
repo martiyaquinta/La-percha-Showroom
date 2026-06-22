@@ -1,44 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sage-50: #f3f7ec; --color-sage-100: #e3eed1;
-  --color-sage-200: #c9dcab; --color-sage-300: #abc783;
-  --color-sage-400: #8db05e; --color-sage-500: #739646;
-  --color-sage-600: #5c7c38; --color-sage-700: #47602c;
-  --color-sage-800: #384b25; --color-sage-900: #2c3b1f;
-  --color-mint-50: #eff7f5; --color-mint-100: #d9ece8;
-  --color-mint-200: #bfe0da; --color-mint-300: #9bccc3;
-  --color-mint-400: #71b1a6; --color-mint-500: #4f9489;
-  --color-mint-600: #3d7870; --color-mint-700: #325f59;
-  --color-taupe-50: #faf7f2; --color-taupe-100: #f3ede4;
-  --color-taupe-200: #e8ded0; --color-taupe-300: #d8c9b4;
-  --color-taupe-400: #c2b099; --color-taupe-500: #a8967c;
-  --color-taupe-600: #897866; --color-taupe-700: #6b5d4b;
-  --color-taupe-800: #4d4337; --color-taupe-900: #322c24;
-  --color-ink-100: #ece8e3; --color-ink-200: #ddd7cf;
-  --color-ink-300: #c8c0b4; --color-ink-400: #a59c8e;
-  --color-ink-500: #837a6b; --color-ink-600: #645c50;
-  --color-ink-700: #4a4339; --color-ink-800: #38322b;
-  --color-ink-900: #2b2722;
+  --color-matcha-50: #ebf0e7; --color-matcha-100: #d7e1cf;
+  --color-matcha-200: #becbb4; --color-matcha-300: #a3b497;
+  --color-matcha-400: #8fa082; --color-matcha-500: #809671;
+  --color-matcha-600: #6a7e5d; --color-matcha-700: #54654a;
+  --color-matcha-800: #3d4e35; --color-matcha-900: #283222;
+  --color-pistache-50: #f3f5ee; --color-pistache-100: #e7eadc;
+  --color-pistache-200: #d8ddc7; --color-pistache-300: #c8cfb1;
+  --color-pistache-400: #B3B792; --color-pistache-500: #9ea180;
+  --color-pistache-600: #848766; --color-pistache-700: #6a6d50;
+  --color-pistache-800: #50533b;
+  --color-almond-50: #f8f6f2; --color-almond-100: #f2efe8;
+  --color-almond-200: #ede9e0; --color-almond-300: #E5E0D8;
+  --color-almond-400: #d5cec4; --color-almond-500: #c4baac;
+  --color-almond-600: #b1a696; --color-almond-700: #a39584;
+  --color-almond-800: #8c7d6b; --color-almond-900: #7a6d5e;
+  --color-carob-50: #ede7de; --color-carob-100: #dcd2c1;
+  --color-carob-200: #c6b79e; --color-carob-300: #b09b7a;
+  --color-carob-400: #9a835d; --color-carob-500: #725C3A;
+  --color-carob-600: #5c4930; --color-carob-700: #463828;
+  --color-carob-800: #2e251a; --color-carob-900: #1a140e;
+  --color-chai-50: #f9f3eb; --color-chai-100: #f3e6d7;
+  --color-chai-200: #ebd6bf; --color-chai-300: #e1c3a3;
+  --color-chai-400: #D2AB80; --color-chai-500: #c09468;
+  --color-chai-600: #a37a52; --color-chai-700: #7d5d3e;
+  --color-vanilla-50: #faf7f2; --color-vanilla-100: #f5efe5;
+  --color-vanilla-200: #efe5d6; --color-vanilla-300: #E5D2B8;
+  --color-vanilla-400: #d3bd9f; --color-vanilla-500: #bfa580;
+  --color-vanilla-600: #a88964; --color-vanilla-800: #8c7250;
   --color-success-50: #eaf4ec; --color-success-500: #3f8f4f;
   --color-success-600: #347a42; --color-warning-50: #fbf0dd;
   --color-warning-500: #d08a2c; --color-warning-600: #b0701d;
   --color-error-50: #f8e7e2; --color-error-500: #c4492f;
   --color-error-600: #a73a23; --color-info-50: #e7f1ef;
-  --color-info-500: #3d7870; --color-info-600: #2f5f59;
-  --color-brand: #5c7c38; --color-brand-hover: #47602c;
-  --color-accent: #4f9489; --color-bg-page: #faf7f2;
+  --color-info-500: #4f9489; --color-info-600: #3d7870;
+  --color-brand: #809671; --color-brand-hover: #6a7e5d;
+  --color-accent: #B3B792; --color-bg-page: #f8f6f2;
   --color-bg-canvas: #fffdf9; --color-surface-card: #ffffff;
-  --color-surface-raised: #ffffff; --color-surface-sunken: #f3ede4;
-  --color-surface-inverse: #2b2722; --color-text-strong: #2b2722;
-  --color-text-body: #38322b; --color-text-muted: #645c50;
-  --color-text-subtle: #837a6b; --color-text-on-brand: #ffffff;
-  --color-text-on-dark: #faf7f2; --color-text-link: #47602c;
-  --color-price: #2b2722; --color-border-subtle: #ddd7cf;
-  --color-border-default: #c8c0b4; --color-border-strong: #a59c8e;
-  --color-border-focus: #5c7c38; --color-rating-star: #eaa92b;
-  --font-display: "Marcellus", "Cormorant Garamond", Georgia, serif;
-  --font-ui: "Mulish", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-surface-raised: #ffffff; --color-surface-sunken: #f2efe8;
+  --color-surface-inverse: #2e251a; --color-text-strong: #2e251a;
+  --color-text-body: #463828; --color-text-muted: #725C3A;
+  --color-text-subtle: #a39584; --color-text-on-brand: #ffffff;
+  --color-text-on-dark: #f8f6f2; --color-text-link: #6a7e5d;
+  --color-price: #2e251a; --color-border-subtle: #ede9e0;
+  --color-border-default: #c4baac; --color-border-strong: #b1a696;
+  --color-border-focus: #809671; --color-rating-star: #eaa92b;
+  --font-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-ui: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-script: "Parisienne", "Brush Script MT", cursive;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --radius-xs: 4px; --radius-sm: 8px; --radius-md: 12px;
@@ -63,13 +72,13 @@ body {
 ::-webkit-scrollbar { display: none; }
 h1, h2, h3, h4, h5, h6 {
   margin: 0; color: var(--color-text-strong);
-  font-family: var(--font-display); font-weight: 400; line-height: 1.15;
+  font-family: var(--font-display); font-weight: 500; line-height: 1.15;
 }
 a { color: var(--color-text-link); text-decoration: none; }
 a:hover { text-decoration: underline; }
-::selection { background: var(--color-sage-200); color: var(--color-ink-900); }
+::selection { background: var(--color-matcha-200); color: var(--color-carob-800); }
 :focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-sage-500) 32%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-matcha-500) 32%, transparent);
   border-radius: var(--radius-sm);
 }

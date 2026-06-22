@@ -1,22 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Marcellus, Mulish } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const marcellus = Marcellus({ variable: "--font-display", subsets: ["latin"], weight: ["400"] });
-const mulish = Mulish({ variable: "--font-ui", subsets: ["latin"], weight: ["300","400","500","600","700","800"] });
+const playfair = Playfair_Display({ variable: "--font-display", subsets: ["latin"], weight: ["400","500","600","700"] });
+const inter = Inter({ variable: "--font-ui", subsets: ["latin"], weight: ["300","400","500","600"] });
 
 export const metadata: Metadata = {
-  title: "La Percha Showroom", description: "Tienda Oficial + Feria de Ropa",
+  title: "La Percha Showroom", description: "Moda Circular · Comunidad · Confianza",
   icons: { apple: "/apple-touch-icon.png" },
   appleWebApp: { capable: true, statusBarStyle: "default" },
 };
 export const viewport: Viewport = {
-  themeColor: "#faf7f2", width: "device-width", initialScale: 1, maximumScale: 1,
+  themeColor: "#f8f6f2", width: "device-width", initialScale: 1, maximumScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${marcellus.variable} ${mulish.variable}`}>
+    <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-bg-page text-text-body font-ui">{children}</body>
     </html>
   );

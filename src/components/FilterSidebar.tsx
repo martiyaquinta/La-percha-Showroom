@@ -47,7 +47,7 @@ export function FilterSidebar() {
           <button key={c.value} onClick={() => setFilter('category', c.value)}
             className={`w-full text-left px-2.5 py-2 rounded-md text-sm font-medium transition-colors
               ${filters.category === c.value
-                ? 'bg-sage-100 text-sage-800'
+                ? 'bg-matcha-100 text-matcha-700'
                 : 'text-text-body hover:bg-surface-sunken'}`}>
             {c.label}
           </button>

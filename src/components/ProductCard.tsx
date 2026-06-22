@@ -41,18 +41,20 @@ export function ProductCard({ product }: { product: Product }) {
             alt={product.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          {product.condition && (
-            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-surface-card text-text-muted">
-              {CONDITION_LABEL[product.condition] ?? product.condition}
-            </span>
-          )}
-          {product.free_shipping && (
-            <span className="absolute top-2 right-9 px-1.5 py-0.5 rounded-full text-[9px] font-bold
-              bg-success-500 text-white flex items-center gap-0.5 shadow-sm">
-              <Truck className="w-2.5 h-2.5" />
-              Envío gratis
-            </span>
-          )}
+          <div className="absolute top-2 left-2 flex flex-col gap-1">
+            {product.condition && (
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-surface-card text-text-muted w-fit">
+                {CONDITION_LABEL[product.condition] ?? product.condition}
+              </span>
+            )}
+            {product.free_shipping && (
+              <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold
+                bg-success-500 text-white flex items-center gap-0.5 shadow-sm w-fit">
+                <Truck className="w-2.5 h-2.5" />
+                Envío gratis
+              </span>
+            )}
+          </div>
 
           {/* Quick add to cart — aparece al hover en desktop */}
           <button onClick={handleAddToCart}

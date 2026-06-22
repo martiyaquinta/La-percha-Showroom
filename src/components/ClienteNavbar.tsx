@@ -55,7 +55,7 @@ export default function ClienteNavbar() {
   const pathname = usePathname()
   const router = useRouter()
   const cartCount = useShopStore(s => s.cartCount())
-  const { filters, setFilter } = useShopStore()
+  const { filters, setFilter, resetFilters } = useShopStore()
   const user = useAuthStore(s => s.user)
   const isHome = pathname === '/' || pathname === '/home'
   const isCart = pathname === '/carrito'
@@ -104,7 +104,9 @@ export default function ClienteNavbar() {
 
         {/* Row 1 — logo + search + CTAs + cart */}
         <div className="h-16 flex items-center gap-4 px-8">
-          <Link href="/home" className="font-display text-xl text-text-strong shrink-0 flex items-center gap-2">
+          <Link href="/home"
+            onClick={() => { resetFilters(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+            className="font-display text-xl text-text-strong shrink-0 flex items-center gap-2">
             <img src="/logo.jpg" alt="" className="w-7 h-7 rounded-lg object-cover" />
             La Percha
           </Link>
@@ -132,7 +134,7 @@ export default function ClienteNavbar() {
               <Link href="/perfil"
                 className="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-surface-sunken transition-colors">
                 <img src={user.avatar} alt={user.name}
-                  className="w-7 h-7 rounded-full object-cover ring-2 ring-sage-100" />
+                  className="w-7 h-7 rounded-full object-cover ring-2 ring-matcha-100" />
                 <span className="text-sm font-semibold text-text-body hidden xl:inline">{user.name}</span>
               </Link>
             ) : (

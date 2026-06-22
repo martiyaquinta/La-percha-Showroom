@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Percha Showroom — Palette Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,sans-serif;background:#f5f2ee;color:#3d2e1a;line-height:1.6;-webkit-font-smoothing:antialiased;padding:48px 32px}
+  .container{max-width:1400px;margin:0 auto}
+  h1,h2{font-family:'Playfair Display',serif;font-weight:500}
+  h1{font-size:2.8rem;margin-bottom:8px}
+  h2{font-size:1.8rem;margin:48px 0 20px}
+  .subtitle{color:#9b8c78;font-weight:300;font-size:1.05rem;margin-bottom:40px}
+
+  .palette-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+  .palette-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(61,46,26,0.05)}
+
+  .color-strip{display:flex;flex-direction:column}
+  .color-row{height:52px;display:flex;align-items:center;padding:0 16px;justify-content:space-between;font-size:0.82rem;font-weight:500;transition:transform 0.15s}
+  .color-row:hover{transform:scaleX(1.02)}
+  .color-label{font-family:Inter,sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;opacity:0.7}
+
+  .palette-header{padding:20px 20px 12px}
+  .palette-header h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600}
+  .palette-header p{font-size:0.82rem;color:#9b8c78;margin-top:2px}
+
+  /* UI Preview Section */
+  .ui-preview{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:32px 0}
+  .ui-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(61,46,26,0.05)}
+  .ui-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:20px}
+
+  .ui-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+  .ui-swatch{width:40px;height:40px;border-radius:10px;flex-shrink:0}
+  .ui-badge{display:inline-block;padding:4px 14px;border-radius:100px;font-size:0.75rem;font-weight:600}
+  .ui-btn{display:inline-block;padding:10px 24px;border-radius:100px;font-size:0.85rem;font-weight:600;border:none;cursor:pointer}
+  .ui-input{border:1.5px solid;border-radius:12px;padding:10px 16px;font-size:0.85rem;width:100%;font-family:Inter,sans-serif;outline:none}
+  .ui-card-example{background:#fff;border-radius:14px;padding:16px;width:180px;border:1px solid}
+  .ui-img-placeholder{aspect-ratio:3/4;border-radius:10px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:500}
+
+  .side-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:#9b8c78;margin-bottom:12px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Paleta Comparativa</h1>
+<p class="subtitle">Sistema actual (Sage/Mint/Taupe) vs Nueva dirección (Matcha/Almond/Pistache)</p>
+
+<!-- ========== CURRENT PALETTE ========== -->
+<h2>Paleta Actual — Sage Green + Taupe Warm</h2>
+<div class="palette-grid">
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Sage (brand)</h3>
+    <p>Verde hoja, orgánico, activo</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#f3f7ec;color:#2c3b1f"><span>Sage 50</span><span>#f3f7ec</span></div>
+    <div class="color-row" style="background:#e3eed1;color:#2c3b1f"><span>Sage 100</span><span>#e3eed1</span></div>
+    <div class="color-row" style="background:#c9dcab;color:#2c3b1f"><span>Sage 200</span><span>#c9dcab</span></div>
+    <div class="color-row" style="background:#abc783;color:#2c3b1f"><span>Sage 300</span><span>#abc783</span></div>
+    <div class="color-row" style="background:#8db05e;color:#fff"><span>Sage 400</span><span>#8db05e</span></div>
+    <div class="color-row" style="background:#739646;color:#fff"><span>Sage 500</span><span>#739646</span></div>
+    <div class="color-row" style="background:#5c7c38;color:#fff"><span>Sage 600 ★</span><span>#5c7c38</span></div>
+    <div class="color-row" style="background:#47602c;color:#fff"><span>Sage 700</span><span>#47602c</span></div>
+    <div class="color-row" style="background:#384b25;color:#fff"><span>Sage 800</span><span>#384b25</span></div>
+    <div class="color-row" style="background:#2c3b1f;color:#fff"><span>Sage 900</span><span>#2c3b1f</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Taupe (bg/surface)</h3>
+    <p>Cálido natural, crema</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#faf7f2;color:#322c24"><span>Taupe 50</span><span>#faf7f2</span></div>
+    <div class="color-row" style="background:#f3ede4;color:#322c24"><span>Taupe 100</span><span>#f3ede4</span></div>
+    <div class="color-row" style="background:#e8ded0;color:#322c24"><span>Taupe 200</span><span>#e8ded0</span></div>
+    <div class="color-row" style="background:#d8c9b4;color:#322c24"><span>Taupe 300</span><span>#d8c9b4</span></div>
+    <div class="color-row" style="background:#c2b099;color:#fff"><span>Taupe 400</span><span>#c2b099</span></div>
+    <div class="color-row" style="background:#a8967c;color:#fff"><span>Taupe 500</span><span>#a8967c</span></div>
+    <div class="color-row" style="background:#897866;color:#fff"><span>Taupe 600</span><span>#897866</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Ink (text/border)</h3>
+    <p>Carbón cálido, editorial</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#ece8e3;color:#2b2722"><span>Ink 100</span><span>#ece8e3</span></div>
+    <div class="color-row" style="background:#ddd7cf;color:#2b2722"><span>Ink 200</span><span>#ddd7cf</span></div>
+    <div class="color-row" style="background:#c8c0b4;color:#2b2722"><span>Ink 300</span><span>#c8c0b4</span></div>
+    <div class="color-row" style="background:#a59c8e;color:#2b2722"><span>Ink 400</span><span>#a59c8e</span></div>
+    <div class="color-row" style="background:#837a6b;color:#fff"><span>Ink 500</span><span>#837a6b</span></div>
+    <div class="color-row" style="background:#645c50;color:#fff"><span>Ink 600</span><span>#645c50</span></div>
+    <div class="color-row" style="background:#4a4339;color:#fff"><span>Ink 700</span><span>#4a4339</span></div>
+    <div class="color-row" style="background:#38322b;color:#fff"><span>Ink 800</span><span>#38322b</span></div>
+    <div class="color-row" style="background:#2b2722;color:#fff"><span>Ink 900</span><span>#2b2722</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ========== NEW PALETTE ========== -->
+<h2 style="color:#809671;">Nueva Paleta — Matcha + Almond + Pistache</h2>
+<div class="palette-grid">
+
+<div class="palette-card" style="border:2px solid #809671;">
+  <div class="palette-header">
+    <h3 style="color:#809671;">Matcha (new brand)</h3>
+    <p>Verde matcha sofisticado, sereno, premium</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#ebf0e7;color:#3d4e35"><span>Matcha 50</span><span>#ebf0e7</span></div>
+    <div class="color-row" style="background:#d7e1cf;color:#3d4e35"><span>Matcha 100</span><span>#d7e1cf</span></div>
+    <div class="color-row" style="background:#becbb4;color:#3d4e35"><span>Matcha 200</span><span>#becbb4</span></div>
+    <div class="color-row" style="background:#a3b497;color:#fff"><span>Matcha 300</span><span>#a3b497</span></div>
+    <div class="color-row" style="background:#8fa082;color:#fff"><span>Matcha 400</span><span>#8fa082</span></div>
+    <div class="color-row" style="background:#809671;color:#fff"><span>Matcha 500 ★</span><span>#809671</span></div>
+    <div class="color-row" style="background:#6a7e5d;color:#fff"><span>Matcha 600</span><span>#6a7e5d</span></div>
+    <div class="color-row" style="background:#54654a;color:#fff"><span>Matcha 700</span><span>#54654a</span></div>
+    <div class="color-row" style="background:#3d4e35;color:#fff"><span>Matcha 800</span><span>#3d4e35</span></div>
+    <div class="color-row" style="background:#283222;color:#fff"><span>Matcha 900</span><span>#283222</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Almond (bg/surface)</h3>
+    <p>Crema almendra, cálido, editorial</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#f8f6f2;color:#5c4a32"><span>Almond 50</span><span>#f8f6f2</span></div>
+    <div class="color-row" style="background:#f2efe8;color:#5c4a32"><span>Almond 100</span><span>#f2efe8</span></div>
+    <div class="color-row" style="background:#ede9e0;color:#5c4a32"><span>Almond 200</span><span>#ede9e0</span></div>
+    <div class="color-row" style="background:#E5E0D8;color:#5c4a32"><span>Almond 300 ★</span><span>#E5E0D8</span></div>
+    <div class="color-row" style="background:#d5cec4;color:#5c4a32"><span>Almond 400</span><span>#d5cec4</span></div>
+    <div class="color-row" style="background:#c4baac;color:#fff"><span>Almond 500</span><span>#c4baac</span></div>
+    <div class="color-row" style="background:#a39584;color:#fff"><span>Almond 700</span><span>#a39584</span></div>
+    <div class="color-row" style="background:#7a6d5e;color:#fff"><span>Almond 900</span><span>#7a6d5e</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Pistache (accent)</h3>
+    <p>Verde pistacho suave, secundario</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#f3f5ee;color:#5a5e3d"><span>Pistache 50</span><span>#f3f5ee</span></div>
+    <div class="color-row" style="background:#e7eadc;color:#5a5e3d"><span>Pistache 100</span><span>#e7eadc</span></div>
+    <div class="color-row" style="background:#d8ddc7;color:#5a5e3d"><span>Pistache 200</span><span>#d8ddc7</span></div>
+    <div class="color-row" style="background:#c8cfb1;color:#5a5e3d"><span>Pistache 300</span><span>#c8cfb1</span></div>
+    <div class="color-row" style="background:#B3B792;color:#fff"><span>Pistache 400 ★</span><span>#B3B792</span></div>
+    <div class="color-row" style="background:#9ea180;color:#fff"><span>Pistache 500</span><span>#9ea180</span></div>
+    <div class="color-row" style="background:#848766;color:#fff"><span>Pistache 600</span><span>#848766</span></div>
+    <div class="color-row" style="background:#6a6d50;color:#fff"><span>Pistache 700</span><span>#6a6d50</span></div>
+    <div class="color-row" style="background:#50533b;color:#fff"><span>Pistache 800</span><span>#50533b</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Chai (warm accent)</h3>
+    <p>Té chai cálido, piel, terroso</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#f9f3eb;color:#5c3d28"><span>Chai 50</span><span>#f9f3eb</span></div>
+    <div class="color-row" style="background:#f3e6d7;color:#5c3d28"><span>Chai 100</span><span>#f3e6d7</span></div>
+    <div class="color-row" style="background:#ebd6bf;color:#5c3d28"><span>Chai 200</span><span>#ebd6bf</span></div>
+    <div class="color-row" style="background:#e1c3a3;color:#5c3d28"><span>Chai 300</span><span>#e1c3a3</span></div>
+    <div class="color-row" style="background:#D2AB80;color:#fff"><span>Chai 400 ★</span><span>#D2AB80</span></div>
+    <div class="color-row" style="background:#c09468;color:#fff"><span>Chai 500</span><span>#c09468</span></div>
+    <div class="color-row" style="background:#a37a52;color:#fff"><span>Chai 600</span><span>#a37a52</span></div>
+    <div class="color-row" style="background:#7d5d3e;color:#fff"><span>Chai 700</span><span>#7d5d3e</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Carob (text/dark)</h3>
+    <p>Algarrobo oscuro, texto, profundidad</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#ede7de;color:#3d2e1a"><span>Carob 50</span><span>#ede7de</span></div>
+    <div class="color-row" style="background:#dcd2c1;color:#3d2e1a"><span>Carob 100</span><span>#dcd2c1</span></div>
+    <div class="color-row" style="background:#c6b79e;color:#3d2e1a"><span>Carob 200</span><span>#c6b79e</span></div>
+    <div class="color-row" style="background:#b09b7a;color:#3d2e1a"><span>Carob 300</span><span>#b09b7a</span></div>
+    <div class="color-row" style="background:#9a835d;color:#fff"><span>Carob 400</span><span>#9a835d</span></div>
+    <div class="color-row" style="background:#725C3A;color:#fff"><span>Carob 500 ★</span><span>#725C3A</span></div>
+    <div class="color-row" style="background:#5c4930;color:#fff"><span>Carob 600</span><span>#5c4930</span></div>
+    <div class="color-row" style="background:#463828;color:#fff"><span>Carob 700</span><span>#463828</span></div>
+    <div class="color-row" style="background:#2e251a;color:#fff"><span>Carob 800</span><span>#2e251a</span></div>
+    <div class="color-row" style="background:#1a140e;color:#fff"><span>Carob 900</span><span>#1a140e</span></div>
+  </div>
+</div>
+
+<div class="palette-card">
+  <div class="palette-header">
+    <h3>Vanilla (warm neutral)</h3>
+    <p>Vainilla cálida, superficie alternativa</p>
+  </div>
+  <div class="color-strip">
+    <div class="color-row" style="background:#faf7f2;color:#4a3520"><span>Vanilla 50</span><span>#faf7f2</span></div>
+    <div class="color-row" style="background:#f5efe5;color:#4a3520"><span>Vanilla 100</span><span>#f5efe5</span></div>
+    <div class="color-row" style="background:#efe5d6;color:#4a3520"><span>Vanilla 200</span><span>#efe5d6</span></div>
+    <div class="color-row" style="background:#E5D2B8;color:#4a3520"><span>Vanilla 300 ★</span><span>#E5D2B8</span></div>
+    <div class="color-row" style="background:#d3bd9f;color:#4a3520"><span>Vanilla 400</span><span>#d3bd9f</span></div>
+    <div class="color-row" style="background:#bfa580;color:#fff"><span>Vanilla 500</span><span>#bfa580</span></div>
+    <div class="color-row" style="background:#a38860;color:#fff"><span>Vanilla 700</span><span>#a38860</span></div>
+    <div class="color-row" style="background:#7a6648;color:#fff"><span>Vanilla 900</span><span>#7a6648</span></div>
+  </div>
+</div>
+
+</div>
+
+<!-- Side by side comparison: Actual vs Nuevo -->
+<h2>Comparación lado a lado</h2>
+<div class="ui-preview">
+  <div>
+    <div class="side-label">Paleta Actual</div>
+    <div class="ui-card">
+      <h3 style="color:#5c7c38;">UI Preview — Actual</h3>
+      <div class="ui-row">
+        <div class="ui-swatch" style="background:#5c7c38"></div>
+        <div class="ui-swatch" style="background:#faf7f2;border:1px solid #ddd7cf"></div>
+        <div class="ui-swatch" style="background:#2b2722"></div>
+        <div class="ui-swatch" style="background:#4f9489"></div>
+        <div class="ui-swatch" style="background:#f3ede4;border:1px solid #ddd7cf"></div>
+      </div>
+      <div class="ui-row" style="gap:8px">
+        <button class="ui-btn" style="background:#5c7c38;color:#fff">Comprar</button>
+        <button class="ui-btn" style="background:#f3ede4;color:#4a4339;border:1px solid #c8c0b4">Guardar</button>
+      </div>
+      <div class="ui-row" style="gap:8px">
+        <span class="ui-badge" style="background:#5c7c38;color:#fff">Nuevo</span>
+        <span class="ui-badge" style="background:#f3ede4;color:#645c50">Envío gratis</span>
+      </div>
+      <input class="ui-input" style="border-color:#c8c0b4;background:#faf7f2" placeholder="Buscar productos..." value="">
+      <div class="ui-card-example" style="margin-top:16px;border-color:#ddd7cf">
+        <div class="ui-img-placeholder" style="background:#f3ede4">img</div>
+        <div style="font-weight:600;font-size:0.85rem;color:#2b2722">Falda midi taupe</div>
+        <div style="font-size:0.78rem;color:#645c50">Tienda Oficial</div>
+        <div style="font-weight:700;font-size:0.9rem;color:#2b2722;margin-top:2px">$16.200</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="side-label" style="color:#809671;">Nueva Paleta</div>
+    <div class="ui-card" style="border:2px solid #809671;">
+      <h3 style="color:#809671;">UI Preview — Nueva</h3>
+      <div class="ui-row">
+        <div class="ui-swatch" style="background:#809671"></div>
+        <div class="ui-swatch" style="background:#E5E0D8;border:1px solid #d5cec4"></div>
+        <div class="ui-swatch" style="background:#2e251a"></div>
+        <div class="ui-swatch" style="background:#B3B792"></div>
+        <div class="ui-swatch" style="background:#D2AB80"></div>
+      </div>
+      <div class="ui-row" style="gap:8px">
+        <button class="ui-btn" style="background:#809671;color:#fff">Comprar</button>
+        <button class="ui-btn" style="background:#E5E0D8;color:#5c4930;border:1px solid #c4baac">Guardar</button>
+      </div>
+      <div class="ui-row" style="gap:8px">
+        <span class="ui-badge" style="background:#809671;color:#fff">Nuevo</span>
+        <span class="ui-badge" style="background:#E5E0D8;color:#725C3A">Envío gratis</span>
+      </div>
+      <input class="ui-input" style="border-color:#c4baac;background:#faf7f2" placeholder="Buscar productos..." value="">
+      <div class="ui-card-example" style="margin-top:16px;border-color:#d5cec4">
+        <div class="ui-img-placeholder" style="background:#E5E0D8">img</div>
+        <div style="font-weight:600;font-size:0.85rem;color:#2e251a">Falda midi taupe</div>
+        <div style="font-size:0.78rem;color:#725C3A">Tienda Oficial</div>
+        <div style="font-weight:700;font-size:0.9rem;color:#2e251a;margin-top:2px">$16.200</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

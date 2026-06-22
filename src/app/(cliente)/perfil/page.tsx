@@ -20,7 +20,7 @@ export default function PerfilPage() {
 
         <div className="flex flex-col items-center pt-10 pb-6 gap-3">
           <img src={user.avatar} alt={user.name}
-            className="w-20 h-20 rounded-full object-cover ring-4 ring-sage-100" />
+            className="w-20 h-20 rounded-full object-cover ring-4 ring-matcha-100" />
           <div className="text-center">
             <p className="font-semibold text-text-strong text-lg">{user.name}</p>
             <p className="text-xs text-text-muted">{user.email}</p>
@@ -111,8 +111,8 @@ export default function PerfilPage() {
       </header>
 
       <div className="flex-1 flex flex-col items-center justify-center gap-4 px-5 text-center">
-        <div className="w-20 h-20 rounded-full bg-sage-100 flex items-center justify-center">
-          <User className="w-10 h-10 text-sage-600" />
+        <div className="w-20 h-20 rounded-full bg-matcha-100 flex items-center justify-center">
+          <User className="w-10 h-10 text-matcha-500" />
         </div>
         <p className="font-semibold text-text-strong">Invitada</p>
         <p className="text-xs text-text-muted max-w-xs">

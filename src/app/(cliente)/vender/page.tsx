@@ -116,8 +116,8 @@ export default function VenderPage() {
               { icon: Clock, label: 'Pago rápido', sub: 'Recibís tu dinero cuando se confirma la entrega' },
             ].map(item => (
               <div key={item.label} className="flex items-start gap-3">
-                <span className="w-8 h-8 rounded-lg bg-sage-100 flex items-center justify-center shrink-0 mt-0.5">
-                  <item.icon className="w-4 h-4 text-sage-600" />
+                <span className="w-8 h-8 rounded-lg bg-matcha-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <item.icon className="w-4 h-4 text-matcha-500" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-text-strong">{item.label}</p>
@@ -206,10 +206,10 @@ export default function VenderPage() {
               <Camera className="w-5 h-5" />
               <span className="text-[10px]">Agregar</span>
             </button>
-            <div className="w-24 h-32 rounded-xl bg-sage-100 flex items-center justify-center text-2xl select-none">
+            <div className="w-24 h-32 rounded-xl bg-matcha-100 flex items-center justify-center text-2xl select-none">
               👗
             </div>
-            <div className="w-24 h-32 rounded-xl bg-mint-100 flex items-center justify-center text-2xl select-none">
+            <div className="w-24 h-32 rounded-xl bg-pistache-100 flex items-center justify-center text-2xl select-none">
               👚
             </div>
           </div>

@@ -42,8 +42,8 @@ export default function DatosVendedoraPage() {
 
         <div className="bg-surface-card rounded-xl border border-border-subtle p-5 space-y-5">
           <div className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-lg bg-sage-100 flex items-center justify-center">
-              <Banknote className="w-4 h-4 text-sage-600" />
+            <span className="w-8 h-8 rounded-lg bg-matcha-100 flex items-center justify-center">
+              <Banknote className="w-4 h-4 text-matcha-500" />
             </span>
             <div>
               <p className="text-sm font-semibold text-text-strong">Cuenta de cobro</p>
@@ -109,13 +109,13 @@ export default function DatosVendedoraPage() {
               <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5">
                 <button type="button"
                   onClick={() => setShowCbu(o => !o)}
-                  className="w-7 h-7 rounded-md hover:bg-taupe-200 flex items-center justify-center
+                  className="w-7 h-7 rounded-md hover:bg-almond-200 flex items-center justify-center
                     text-text-muted text-[10px] font-semibold">
                   {showCbu ? 'Ocultar' : 'Ver'}
                 </button>
                 <button type="button"
                   onClick={() => copyToClipboard(form.cbu, 'cbu')}
-                  className="w-7 h-7 rounded-md hover:bg-taupe-200 flex items-center justify-center
+                  className="w-7 h-7 rounded-md hover:bg-almond-200 flex items-center justify-center
                     text-text-muted">
                   {copied === 'cbu' ? <Check className="w-3.5 h-3.5 text-success-500" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
@@ -136,7 +136,7 @@ export default function DatosVendedoraPage() {
               <button type="button"
                 onClick={() => copyToClipboard(form.alias, 'alias')}
                 className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-md
-                  hover:bg-taupe-200 flex items-center justify-center text-text-muted">
+                  hover:bg-almond-200 flex items-center justify-center text-text-muted">
                 {copied === 'alias' ? <Check className="w-3.5 h-3.5 text-success-500" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>

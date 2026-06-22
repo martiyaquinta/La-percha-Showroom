@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" width="360" height="120">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#809671"/>
+      <stop offset="100%" stop-color="#6a7e5d"/>
+    </linearGradient>
+  </defs>
+  <!-- LP Monogram -->
+  <text x="62" y="62" text-anchor="middle" font-family="'Playfair Display', 'Times New Roman', serif" font-size="48" font-weight="500" font-style="italic" fill="url(#lg)" letter-spacing="-2">LP</text>
+  <!-- Thin rule -->
+  <line x1="100" y1="72" x2="260" y2="72" stroke="#D2AB80" stroke-width="0.8" opacity="0.6"/>
+  <!-- SHOWROOM -->
+  <text x="180" y="90" text-anchor="middle" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="9" font-weight="400" fill="#a39584" letter-spacing="6">SHOWROOM</text>
+  <!-- LA PERCHA -->
+  <text x="180" y="110" text-anchor="middle" font-family="'Playfair Display', 'Times New Roman', serif" font-size="16" font-weight="500" fill="#2e251a" letter-spacing="3">LA PERCHA</text>
+</svg>

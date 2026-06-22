@@ -35,7 +35,7 @@ function SectionHeader({
   return (
     <div className="flex items-center justify-between px-4 lg:px-6 mb-3">
       <div className="flex items-center gap-2.5">
-        <span className="w-8 h-8 rounded-xl bg-sage-100 flex items-center justify-center shrink-0">
+        <span className="w-8 h-8 rounded-xl bg-matcha-100 flex items-center justify-center shrink-0">
           {icon}
         </span>
         <div>
@@ -119,7 +119,7 @@ export default function HomePage() {
               {/* Tienda Oficial — scroll horizontal */}
               <div className="mt-8 lg:mt-10 mb-6">
                 <SectionHeader
-                  icon={<Store className="w-4 h-4 text-sage-700" />}
+                  icon={<Store className="w-4 h-4 text-matcha-600" />}
                   title="Tienda Oficial"
                   sub="Seleccionado por Silvina"
                   onVerTodo={() => setFilter('category', 'tienda_percha')}
@@ -137,61 +137,75 @@ export default function HomePage() {
               <div className="px-4 lg:px-6 mb-7 grid grid-cols-1 lg:grid-cols-2 gap-4">
 
                 {/* Hero — Feria de Ropa */}
-                <div className="relative rounded-2xl overflow-hidden
-                  bg-gradient-to-br from-mint-200 to-sage-200 p-5 lg:p-6">
-                  <p className="text-[10px] font-bold uppercase tracking-widest
-                    text-sage-700 mb-1.5">
-                    Feria de Ropa
-                  </p>
-                  <h2 className="font-display text-[1.6rem] lg:text-[1.8rem] text-ink-900
-                    leading-tight mb-2 max-w-[14rem]">
-                    Renová tu placard, cerca tuyo
-                  </h2>
-                  <p className="text-sm text-ink-800 mb-4 max-w-[15rem] leading-relaxed">
-                    Ropa seleccionada por vendedores de la comunidad.
-                    Envío gratis desde $25.000.
-                  </p>
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('feria-section')
-                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                    }}
-                    className="inline-flex items-center gap-1.5 bg-ink-900 text-text-on-dark
-                      px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
-                    Ver la feria <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                <div className="relative rounded-2xl overflow-hidden h-64 lg:h-72
+                  flex items-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&h=600&fit=crop"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-matcha-900/95 via-matcha-900/85 to-matcha-900/30" />
+                  <div className="relative p-6 lg:p-8 z-10">
+                    <p className="text-[10px] font-bold uppercase tracking-widest
+                      text-matcha-200 mb-2">
+                      Feria de Ropa
+                    </p>
+                    <h2 className="font-display text-[1.6rem] lg:text-[1.8rem] !text-white
+                      leading-tight mb-2 max-w-[14rem]">
+                      Renová tu placard, cerca tuyo
+                    </h2>
+                    <p className="text-sm text-white/70 mb-5 max-w-[14rem] leading-relaxed">
+                      Prendas seleccionadas por la comunidad.
+                      Envío gratis desde $25.000.
+                    </p>
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('feria-section')
+                        el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      }}
+                      className="inline-flex items-center gap-1.5 bg-white text-matcha-800
+                        px-4 py-2 rounded-full text-sm font-semibold
+                        hover:bg-matcha-50 transition-colors">
+                      Ver la feria <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Banner vender */}
-                <div className="relative rounded-2xl overflow-hidden
-                  bg-gradient-to-br from-taupe-300 to-taupe-200 p-5 lg:p-6">
-                  <span className="absolute right-3 top-1 text-7xl opacity-10 select-none
-                    pointer-events-none leading-none">👗</span>
-                  <p className="text-[10px] font-bold uppercase tracking-widest
-                    text-taupe-700 mb-1.5">
-                    ¿Tenés ropa que ya no usás?
-                  </p>
-                  <h2 className="font-display text-[1.6rem] lg:text-[1.8rem] text-ink-900
-                    leading-tight mb-2">
-                    Vendela en La Percha
-                  </h2>
-                  <p className="text-sm text-ink-800 mb-4 max-w-[16rem] leading-relaxed">
-                    Publicá tus prendas y llegá a toda la comunidad.
-                    Vos te quedás con el <strong>80%</strong> de cada venta —
-                    el 20% restante es la comisión de La Percha.
-                  </p>
-                  <Link href="/vender"
-                    className="inline-flex items-center gap-1.5 bg-ink-900 text-text-on-dark
-                      px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-opacity">
-                    Empezar a vender <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
+                <div className="relative rounded-2xl overflow-hidden h-64 lg:h-72
+                  flex items-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=600&fit=crop"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-carob-900/95 via-carob-900/85 to-carob-900/30" />
+                  <div className="relative p-6 lg:p-8 z-10">
+                    <p className="text-[10px] font-bold uppercase tracking-widest
+                      text-chai-300 mb-2">
+                      ¿Tenés ropa que ya no usás?
+                    </p>
+                    <h2 className="font-display text-[1.6rem] lg:text-[1.8rem] !text-white
+                      leading-tight mb-2">
+                      Vendela en La Percha
+                    </h2>
+                    <p className="text-sm text-white/65 mb-5 max-w-[14rem] leading-relaxed">
+                      Publicá gratis. Vos te quedás con el <strong className="text-white">80%</strong> de cada venta.
+                    </p>
+                    <Link href="/vender"
+                      className="inline-flex items-center gap-1.5 bg-white text-carob-800
+                        px-4 py-2 rounded-full text-sm font-semibold
+                        hover:bg-chai-50 transition-colors">
+                      Empezar a vender <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
               {/* Feria de Ropa — grid */}
               <div id="feria-section">
                 <SectionHeader
-                  icon={<Heart className="w-4 h-4 text-sage-700" />}
+                  icon={<Heart className="w-4 h-4 text-matcha-600" />}
                   title="Feria de Ropa"
                   sub="De la comunidad"
                   onVerTodo={() => setFilter('category', 'mujer')}
@@ -235,30 +249,6 @@ export default function HomePage() {
               </div>
 
               <div className="mx-4 lg:mx-6 h-px bg-border-subtle" />
-
-              {/* Tienda Oficial — visibles al tope si no hay búsqueda activa */}
-              {!filters.search && oficialProducts.length > 0 && (
-                <div className="mt-6 lg:mt-8 mb-5">
-                  <div className="flex items-center justify-between px-4 lg:px-6 mb-3">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-8 h-8 rounded-xl bg-sage-100 flex items-center justify-center shrink-0">
-                        <Store className="w-4 h-4 text-sage-700" />
-                      </span>
-                      <div>
-                        <p className="font-display text-[1.1rem] text-text-strong leading-none">Tienda Oficial</p>
-                        <p className="text-[11px] text-text-muted mt-0.5">Seleccionado por Silvina</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 overflow-x-auto px-4 lg:px-6 pb-2">
-                    {oficialProducts.map(p => (
-                      <div key={p.id} className="w-40 shrink-0">
-                        <ProductCard product={p} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {filteredProducts.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 gap-3">

@@ -34,7 +34,7 @@ export function SortDropdown() {
                 onClick={() => { setFilter('sort', o.value); setOpen(false) }}
                 className={`w-full text-left px-4 py-2.5 text-sm transition-colors
                   ${filters.sort === o.value
-                    ? 'bg-sage-50 text-brand font-semibold'
+                    ? 'bg-matcha-50 text-brand font-semibold'
                     : 'text-text-body hover:bg-surface-sunken'}`}>
                 {o.label}
               </button>

@@ -75,11 +75,11 @@ export default function SaldoPage() {
 
       <div className="flex-1 px-4 lg:px-6 py-6 space-y-6 pb-24 lg:pb-10 max-w-lg mx-auto w-full">
         {/* Tarjeta de saldo */}
-        <div className="bg-gradient-to-br from-sage-600 to-sage-700 rounded-2xl p-6 text-white shadow-lg">
+        <div className="bg-gradient-to-br from-matcha-500 to-matcha-600 rounded-2xl p-6 text-white shadow-lg">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <Wallet className="w-5 h-5 text-sage-200" />
-              <span className="text-sm font-semibold text-sage-100">Saldo disponible</span>
+              <Wallet className="w-5 h-5 text-matcha-200" />
+              <span className="text-sm font-semibold text-matcha-100">Saldo disponible</span>
             </div>
             <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/20">
               La Percha
@@ -88,7 +88,7 @@ export default function SaldoPage() {
           <p className="text-3xl lg:text-4xl font-bold tracking-tight">
             $ {user.balance.toLocaleString('es-AR')}
           </p>
-          <p className="text-sage-200 text-xs mt-1">
+          <p className="text-matcha-200 text-xs mt-1">
             Ganancia total de ventas: $ {ganancia.toLocaleString('es-AR')}
           </p>
 
@@ -96,8 +96,8 @@ export default function SaldoPage() {
             <button
               onClick={() => setShowRetiro(true)}
               disabled={user.balance <= 0}
-              className="flex-1 h-11 bg-white text-sage-700 font-semibold rounded-full text-sm
-                hover:bg-sage-50 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
+              className="flex-1 h-11 bg-white text-matcha-600 font-semibold rounded-full text-sm
+                hover:bg-matcha-50 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
               <ArrowDown className="w-4 h-4" />
               Retirar
             </button>
