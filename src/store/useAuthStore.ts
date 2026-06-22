@@ -102,6 +102,14 @@ export const useAuthStore = create<AuthStore>()((set, get) => ({
       },
       isLoading: false,
     })
+
+    // Guardar registro en Supabase para que el admin lo vea
+    fetch("/api/registros/crear", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.toLowerCase(), name }),
+    }).catch(() => {})
+
     return { ok: true }
   },
 

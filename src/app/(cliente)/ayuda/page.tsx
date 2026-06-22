@@ -1,13 +1,26 @@
 "use client"
-import { useState } from "react"
-import { useAdminStore } from "@/store/useAdminStore"
-import { ChevronDown, HelpCircle } from "lucide-react"
+import { useState, useEffect } from "react"
+import { supabase } from "@/lib/supabase"
+import { ChevronDown, HelpCircle, ArrowLeft, Loader2 } from "lucide-react"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+
+interface FAQItem {
+  id: string
+  pregunta: string
+  respuesta: string
+}
 
 export default function AyudaPage() {
-  const faq = useAdminStore(s => s.faq)
+  const [faq, setFaq] = useState<FAQItem[]>([])
   const [openId, setOpenId] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    supabase.from("faq").select("id,pregunta,respuesta").order("orden").then(({ data }) => {
+      if (data) setFaq(data)
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -19,7 +32,11 @@ export default function AyudaPage() {
       </header>
 
       <div className="flex-1 p-5 lg:p-7 max-w-2xl mx-auto w-full space-y-2 pb-24">
-        {faq.length === 0 ? (
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="w-6 h-6 text-text-muted animate-spin" />
+          </div>
+        ) : faq.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3 text-text-muted">
             <HelpCircle className="w-10 h-10" />
             <p className="text-sm">No hay preguntas cargadas todavía.</p>

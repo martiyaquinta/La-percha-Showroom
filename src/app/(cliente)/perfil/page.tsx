@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { ArrowLeft, User, Package, Heart, LogOut, ChevronRight, ShoppingBag, Archive, Banknote, Wallet, HelpCircle } from "lucide-react"
+import { ArrowLeft, User, Package, Heart, LogOut, ChevronRight, ShoppingBag, Archive, Banknote, Wallet, HelpCircle, Settings } from "lucide-react"
 import { useAuthStore } from "@/store/useAuthStore"
 
 export default function PerfilPage() {
@@ -33,6 +33,15 @@ export default function PerfilPage() {
             <div className="flex items-center gap-3">
               <Package className="w-5 h-5 text-text-muted" />
               <span className="text-sm text-text-body">Mis compras</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-text-subtle" />
+          </Link>
+
+          <Link href="/perfil/editar"
+            className="flex items-center justify-between px-4 py-3.5 rounded-lg hover:bg-surface-sunken transition-colors">
+            <div className="flex items-center gap-3">
+              <Settings className="w-5 h-5 text-text-muted" />
+              <span className="text-sm text-text-body">Editar perfil</span>
             </div>
             <ChevronRight className="w-4 h-4 text-text-subtle" />
           </Link>

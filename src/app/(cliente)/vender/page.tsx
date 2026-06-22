@@ -1,9 +1,9 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Camera, Plus, X, ShieldCheck, Package, BadgePercent, Truck, Clock, FileText, CheckCircle } from "lucide-react"
 import { useAuthStore } from "@/store/useAuthStore"
-import { useAdminStore } from "@/store/useAdminStore"
+import { supabase } from "@/lib/supabase"
 
 const CATEGORIES = [
   { value: 'mujer', label: 'Mujer' },
@@ -20,9 +20,15 @@ const SIZES = ['XS','S','M','L','XL','Único']
 
 export default function VenderPage() {
   const { user, requestSeller } = useAuthStore()
-  const terms = useAdminStore(s => s.terms)
+  const [terms, setTerms] = useState("")
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [showTerms, setShowTerms] = useState(false)
+
+  useEffect(() => {
+    supabase.from("terminos").select("contenido").single().then(({ data }) => {
+      if (data) setTerms(data.contenido)
+    })
+  }, [])
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [brand, setBrand] = useState("")

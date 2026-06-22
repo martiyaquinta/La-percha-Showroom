@@ -2,12 +2,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { LayoutDashboard, ShieldCheck, Users, Store, Package, Tags, HelpCircle, Menu, X, ChevronRight, LogOut } from "lucide-react"
+import { LayoutDashboard, ShieldCheck, Users, Store, Package, Tags, HelpCircle, UserPlus, Menu, X, ChevronRight, LogOut } from "lucide-react"
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/moderacion", label: "Moderación", icon: ShieldCheck },
   { href: "/admin/vendedores", label: "Vendedores", icon: Users },
+  { href: "/admin/registros", label: "Registros", icon: UserPlus },
   { href: "/admin/tienda", label: "Tienda", icon: Store },
   { href: "/admin/pedidos", label: "Pedidos", icon: Package },
   { href: "/admin/categorias", label: "Categorías", icon: Tags },
