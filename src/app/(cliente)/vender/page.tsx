@@ -1,8 +1,9 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowLeft, Camera, Plus, X, ShieldCheck, Package, BadgePercent, Truck, Clock } from "lucide-react"
+import { ArrowLeft, Camera, Plus, X, ShieldCheck, Package, BadgePercent, Truck, Clock, FileText, CheckCircle } from "lucide-react"
 import { useAuthStore } from "@/store/useAuthStore"
+import { useAdminStore } from "@/store/useAdminStore"
 
 const CATEGORIES = [
   { value: 'mujer', label: 'Mujer' },
@@ -19,6 +20,9 @@ const SIZES = ['XS','S','M','L','XL','Único']
 
 export default function VenderPage() {
   const { user, requestSeller } = useAuthStore()
+  const terms = useAdminStore(s => s.terms)
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [brand, setBrand] = useState("")
@@ -91,6 +95,40 @@ export default function VenderPage() {
   }
 
   if (user.seller_status === 'none') {
+    if (!termsAccepted) {
+      return (
+        <div className="flex flex-col min-h-screen">
+          <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-16">
+            <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+              <ArrowLeft className="w-4 h-4 text-text-muted" />
+            </Link>
+            <h1 className="font-display text-xl text-text-strong">Términos y condiciones</h1>
+          </header>
+          <div className="flex-1 flex flex-col px-5 py-6 max-w-md mx-auto w-full">
+            <div className="flex-1 bg-surface-card rounded-xl border border-border-subtle p-5 mb-5 overflow-y-auto">
+              <div className="flex items-center gap-2 mb-4">
+                <FileText className="w-5 h-5 text-matcha-600" />
+                <h2 className="font-display text-lg text-text-strong">Para vender en La Percha</h2>
+              </div>
+              <div className="text-sm text-text-body whitespace-pre-line leading-relaxed">
+                {terms}
+              </div>
+            </div>
+            <label className="flex items-start gap-3 mb-4 cursor-pointer">
+              <input type="checkbox" checked={termsAccepted} onChange={e => setTermsAccepted(e.target.checked)}
+                className="accent-brand w-4 h-4 mt-0.5 rounded" />
+              <span className="text-xs text-text-muted">Acepto los términos y condiciones de La Percha Showroom para vender mis productos.</span>
+            </label>
+            <button onClick={() => requestSeller()} disabled={!termsAccepted}
+              className="w-full h-12 bg-brand hover:bg-brand-hover text-white font-semibold rounded-full flex items-center justify-center gap-2 transition-colors disabled:opacity-40">
+              <ShieldCheck className="w-4 h-4" />
+              Quiero ser vendedora
+            </button>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className="flex flex-col min-h-screen">
         <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-16">
@@ -100,7 +138,9 @@ export default function VenderPage() {
           <h1 className="font-display text-xl text-text-strong">Vender</h1>
         </header>
         <div className="flex-1 flex flex-col items-center justify-center px-5 py-8 gap-6 max-w-md mx-auto w-full">
-          <p className="text-5xl">👗</p>
+          <div className="w-14 h-14 rounded-full bg-success-50 flex items-center justify-center">
+            <CheckCircle className="w-8 h-8 text-success-500" />
+          </div>
           <div className="text-center space-y-2">
             <p className="text-text-strong font-semibold text-lg">Vendé en La Percha</p>
             <p className="text-text-muted text-sm leading-relaxed">
@@ -135,9 +175,10 @@ export default function VenderPage() {
             Quiero ser vendedora
           </button>
 
-          <p className="text-[10px] text-text-subtle text-center">
-            Al solicitar ser vendedora, aceptás los términos y condiciones de La Percha.
-          </p>
+          <button onClick={() => setTermsAccepted(false)}
+            className="text-xs text-text-muted hover:underline">
+            Ver términos y condiciones
+          </button>
         </div>
       </div>
     )

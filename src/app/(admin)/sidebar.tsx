@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { LayoutDashboard, ShieldCheck, Users, Store, Package, Menu, X, ChevronRight, LogOut } from "lucide-react"
+import { LayoutDashboard, ShieldCheck, Users, Store, Package, Tags, HelpCircle, Menu, X, ChevronRight, LogOut } from "lucide-react"
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -10,6 +10,8 @@ const NAV = [
   { href: "/admin/vendedores", label: "Vendedores", icon: Users },
   { href: "/admin/tienda", label: "Tienda", icon: Store },
   { href: "/admin/pedidos", label: "Pedidos", icon: Package },
+  { href: "/admin/categorias", label: "Categorías", icon: Tags },
+  { href: "/admin/faq", label: "FAQ / Términos", icon: HelpCircle },
 ]
 
 export function AdminSidebar() {
