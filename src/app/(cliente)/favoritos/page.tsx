@@ -1,0 +1,42 @@
+"use client"
+import Link from "next/link"
+import { Heart, ArrowLeft } from "lucide-react"
+import { useShopStore } from "@/store/useShopStore"
+import { PRODUCTS } from "@/lib/placeholder-products"
+import { ProductCard } from "@/components/ProductCard"
+
+export default function FavoritosPage() {
+  const favorites = useShopStore(s => s.favorites)
+  const favProducts = PRODUCTS.filter(p => favorites.includes(p.id))
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+        <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+          <ArrowLeft className="w-4 h-4 text-text-muted" />
+        </Link>
+        <h1 className="font-display text-xl text-text-strong">Favoritos</h1>
+        <span className="text-xs text-text-muted ml-1">
+          {favorites.length} prenda{favorites.length !== 1 ? 's' : ''}
+        </span>
+      </header>
+
+      {favProducts.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-32 gap-3">
+          <p className="text-5xl">♡</p>
+          <p className="text-text-muted text-sm">Todavía no guardaste prendas favoritas</p>
+          <Link href="/home"
+            className="mt-2 px-5 py-2 rounded-full bg-brand text-text-on-brand font-semibold text-sm hover:bg-brand-hover transition-colors">
+            Descubrir prendas
+          </Link>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-4 lg:p-6 pb-24 lg:pb-10">
+          {favProducts.map(p => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

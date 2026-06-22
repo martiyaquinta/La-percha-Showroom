@@ -2,3 +2,5 @@
 .obsidian/
 *.log
 node_modules/
+.next/
+.superpowers/

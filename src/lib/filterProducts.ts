@@ -3,8 +3,15 @@ import type { Product, Filters } from './types'
 export function filterProducts(products: Product[], filters: Filters): Product[] {
   return products
     .filter(p => {
-      if (filters.category === 'all' || !filters.category) return true
-      return p.store_type === filters.category
+      const cat = filters.category
+      if (!cat || cat === 'all') return true
+      if (cat === 'tienda_percha') return p.store_type === 'oficial'
+      if (cat === 'promos') return p.accepts_offers === true
+      return p.category === cat
+    })
+    .filter(p => {
+      if (!filters.subcategory) return true
+      return p.subcategory === filters.subcategory
     })
     .filter(p => {
       if (!filters.size) return true
@@ -17,6 +24,11 @@ export function filterProducts(products: Product[], filters: Filters): Product[]
     .filter(p => {
       if (!filters.priceMax || filters.priceMax === 0) return true
       return p.price <= filters.priceMax
+    })
+    .filter(p => {
+      if (!filters.search) return true
+      const q = filters.search.toLowerCase()
+      return p.title.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q)
     })
     .sort((a, b) => {
       if (filters.sort === 'price_asc') return a.price - b.price

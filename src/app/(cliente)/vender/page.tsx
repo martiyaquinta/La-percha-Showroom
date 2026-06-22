@@ -1,0 +1,362 @@
+"use client"
+import { useState } from "react"
+import Link from "next/link"
+import { ArrowLeft, Camera, Plus, X, ShieldCheck, Package, BadgePercent, Truck, Clock } from "lucide-react"
+import { useAuthStore } from "@/store/useAuthStore"
+
+const CATEGORIES = [
+  { value: 'mujer', label: 'Mujer' },
+  { value: 'hombre', label: 'Hombre' },
+  { value: 'kids', label: 'Kids' },
+]
+const CONDITIONS = [
+  { value: 'new_tag', label: 'Nuevo con etiqueta' },
+  { value: 'new', label: 'Nuevo' },
+  { value: 'like_new', label: 'Como nuevo' },
+  { value: 'used', label: 'Usado' },
+]
+const SIZES = ['XS','S','M','L','XL','Único']
+
+export default function VenderPage() {
+  const { user, requestSeller } = useAuthStore()
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [brand, setBrand] = useState("")
+  const [price, setPrice] = useState("")
+  const [category, setCategory] = useState("mujer")
+  const [condition, setCondition] = useState("like_new")
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+  const [freeShipping, setFreeShipping] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  if (!user) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+          <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+            <ArrowLeft className="w-4 h-4 text-text-muted" />
+          </Link>
+          <h1 className="font-display text-xl text-text-strong">Vender</h1>
+        </header>
+        <div className="flex-1 flex flex-col items-center justify-center gap-5 px-5 text-center">
+          <p className="text-5xl">👗</p>
+          <div>
+            <p className="text-text-strong font-semibold text-base">¿Querés vender?</p>
+            <p className="text-text-muted text-sm mt-1 max-w-xs">
+              Ingresá o creá tu cuenta para publicar tus prendas.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2.5 w-full max-w-xs">
+            <Link href="/ingresar"
+              className="w-full h-12 bg-brand hover:bg-brand-hover text-text-on-brand
+                font-semibold rounded-full flex items-center justify-center transition-colors">
+              Iniciar sesión
+            </Link>
+            <Link href="/ingresar/registrarse"
+              className="w-full h-12 border border-border-default text-text-body
+                font-semibold rounded-full flex items-center justify-center
+                hover:border-brand hover:text-brand transition-colors">
+              Registrarme
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (user.seller_status === 'pending') {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+          <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+            <ArrowLeft className="w-4 h-4 text-text-muted" />
+          </Link>
+          <h1 className="font-display text-xl text-text-strong">Vender</h1>
+        </header>
+        <div className="flex-1 flex flex-col items-center justify-center gap-5 px-5 text-center">
+          <p className="text-5xl">⏳</p>
+          <div>
+            <p className="text-text-strong font-semibold text-base">Solicitud enviada</p>
+            <p className="text-text-muted text-sm mt-1 max-w-xs">
+              Estamos revisando tu perfil. Te avisamos por email cuando esté aprobado. Suele tardar menos de 24 horas.
+            </p>
+          </div>
+          <Link href="/home"
+            className="px-6 py-2.5 rounded-full bg-brand text-white font-semibold text-sm hover:bg-brand-hover transition-colors">
+            Volver al inicio
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  if (user.seller_status === 'none') {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+          <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+            <ArrowLeft className="w-4 h-4 text-text-muted" />
+          </Link>
+          <h1 className="font-display text-xl text-text-strong">Vender</h1>
+        </header>
+        <div className="flex-1 flex flex-col items-center justify-center px-5 py-8 gap-6 max-w-md mx-auto w-full">
+          <p className="text-5xl">👗</p>
+          <div className="text-center space-y-2">
+            <p className="text-text-strong font-semibold text-lg">Vendé en La Percha</p>
+            <p className="text-text-muted text-sm leading-relaxed">
+              Publicá tus prendas y llegá a toda la comunidad. Vos te quedás con el 80% de cada venta.
+            </p>
+          </div>
+
+          <div className="w-full space-y-3 bg-surface-sunken rounded-xl p-4">
+            {[
+              { icon: ShieldCheck, label: 'Moderación', sub: 'Revisamos cada prenda antes de publicar' },
+              { icon: BadgePercent, label: 'Comisión 20%', sub: 'Solo pagás cuando vendés' },
+              { icon: Truck, label: 'Envíos', sub: 'Coordinás con la compradora o usás Correo Argentino' },
+              { icon: Clock, label: 'Pago rápido', sub: 'Recibís tu dinero cuando se confirma la entrega' },
+            ].map(item => (
+              <div key={item.label} className="flex items-start gap-3">
+                <span className="w-8 h-8 rounded-lg bg-sage-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <item.icon className="w-4 h-4 text-sage-600" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-text-strong">{item.label}</p>
+                  <p className="text-xs text-text-muted">{item.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <button onClick={requestSeller}
+            className="w-full h-12 bg-brand hover:bg-brand-hover text-white
+              font-semibold rounded-full flex items-center justify-center gap-2
+              transition-colors shadow-lg shadow-brand/20">
+            <ShieldCheck className="w-4 h-4" />
+            Quiero ser vendedora
+          </button>
+
+          <p className="text-[10px] text-text-subtle text-center">
+            Al solicitar ser vendedora, aceptás los términos y condiciones de La Percha.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  function toggleSize(s: string) {
+    setSelectedSizes(prev =>
+      prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]
+    )
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setSent(true)
+  }
+
+  if (sent) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+          <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+            <ArrowLeft className="w-4 h-4 text-text-muted" />
+          </Link>
+          <h1 className="font-display text-xl text-text-strong">Vender</h1>
+        </header>
+        <div className="flex-1 flex flex-col items-center justify-center gap-4 px-5 text-center">
+          <p className="text-5xl">✨</p>
+          <p className="text-text-strong font-semibold text-lg">¡Prenda publicada!</p>
+          <p className="text-text-muted text-sm max-w-xs">
+            Tu prenda ya está en revisión. Te avisamos cuando esté publicada en La Percha.
+          </p>
+          <div className="flex gap-3 mt-2">
+            <Link href="/home"
+              className="px-5 py-2.5 rounded-full border border-border-default text-text-body font-semibold text-sm hover:border-brand transition-colors">
+              Volver al inicio
+            </Link>
+            <button onClick={() => { setSent(false); setTitle(""); setDescription(""); setBrand(""); setPrice(""); setSelectedSizes([]) }}
+              className="px-5 py-2.5 rounded-full bg-brand text-text-on-brand font-semibold text-sm hover:bg-brand-hover transition-colors">
+              Publicar otra
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+        <Link href="/home" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
+          <ArrowLeft className="w-4 h-4 text-text-muted" />
+        </Link>
+        <h1 className="font-display text-xl text-text-strong">Publicar prenda</h1>
+      </header>
+
+      <form onSubmit={handleSubmit}
+        className="flex-1 max-w-2xl mx-auto w-full px-4 lg:px-6 py-6 space-y-6 pb-24 lg:pb-10">
+
+        {/* Fotos */}
+        <div>
+          <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">Fotos</p>
+          <div className="flex gap-3">
+            <button type="button"
+              className="w-24 h-32 rounded-xl bg-surface-sunken border-2 border-dashed border-border-default
+                flex flex-col items-center justify-center gap-1 text-text-muted hover:border-brand transition-colors">
+              <Camera className="w-5 h-5" />
+              <span className="text-[10px]">Agregar</span>
+            </button>
+            <div className="w-24 h-32 rounded-xl bg-sage-100 flex items-center justify-center text-2xl select-none">
+              👗
+            </div>
+            <div className="w-24 h-32 rounded-xl bg-mint-100 flex items-center justify-center text-2xl select-none">
+              👚
+            </div>
+          </div>
+        </div>
+
+        {/* Título */}
+        <div>
+          <label className="block text-xs font-semibold text-text-muted uppercase tracking-wide mb-1.5">
+            Título
+          </label>
+          <input type="text" value={title} onChange={e => setTitle(e.target.value)}
+            placeholder="Ej: Vestido lino sage talle M"
+            required
+            className="w-full h-11 px-4 rounded-lg bg-surface-sunken text-sm text-text-body
+              placeholder:text-text-muted border border-transparent
+              focus:border-brand focus:outline-none transition-colors" />
+        </div>
+
+        {/* Descripción */}
+        <div>
+          <label className="block text-xs font-semibold text-text-muted uppercase tracking-wide mb-1.5">
+            Descripción
+          </label>
+          <textarea value={description} onChange={e => setDescription(e.target.value)}
+            placeholder="Contá los detalles: tela, estado, color, ocasiones de uso..."
+            rows={3} required
+            className="w-full px-4 py-3 rounded-lg bg-surface-sunken text-sm text-text-body
+              placeholder:text-text-muted border border-transparent resize-none
+              focus:border-brand focus:outline-none transition-colors" />
+        </div>
+
+        {/* Marca + Precio */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-semibold text-text-muted uppercase tracking-wide mb-1.5">
+              Marca
+            </label>
+            <input type="text" value={brand} onChange={e => setBrand(e.target.value)}
+              placeholder="Ej: Jazmín Chebar"
+              required
+              className="w-full h-11 px-4 rounded-lg bg-surface-sunken text-sm text-text-body
+                placeholder:text-text-muted border border-transparent
+                focus:border-brand focus:outline-none transition-colors" />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-text-muted uppercase tracking-wide mb-1.5">
+              Precio
+            </label>
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-text-muted">$</span>
+              <input type="number" value={price} onChange={e => setPrice(e.target.value)}
+                placeholder="9.800"
+                min={0} step={100} required
+                className="w-full h-11 pl-7 pr-4 rounded-lg bg-surface-sunken text-sm text-text-body
+                  placeholder:text-text-muted border border-transparent
+                  focus:border-brand focus:outline-none transition-colors" />
+            </div>
+          </div>
+        </div>
+
+        {/* Categoría */}
+        <div>
+          <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">Categoría</p>
+          <div className="flex gap-2">
+            {CATEGORIES.map(c => (
+              <button key={c.value} type="button"
+                onClick={() => setCategory(c.value)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors border
+                  ${category === c.value
+                    ? 'bg-brand border-brand text-text-on-brand'
+                    : 'border-border-default text-text-body hover:border-brand'}`}>
+                {c.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Talles */}
+        <div>
+          <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">Talles</p>
+          <div className="flex flex-wrap gap-2">
+            {SIZES.map(s => (
+              <button key={s} type="button"
+                onClick={() => toggleSize(s)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold border transition-colors
+                  ${selectedSizes.includes(s)
+                    ? 'bg-brand border-brand text-text-on-brand'
+                    : 'border-border-default text-text-body hover:border-brand'}`}>
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Estado */}
+        <div>
+          <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-2">Estado</p>
+          <div className="space-y-2">
+            {CONDITIONS.map(c => (
+              <label key={c.value} className="flex items-center gap-3 cursor-pointer py-1.5">
+                <input type="radio" name="condition"
+                  checked={condition === c.value}
+                  onChange={() => setCondition(c.value)}
+                  className="accent-brand w-4 h-4" />
+                <span className="text-sm text-text-body">{c.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Envío */}
+        <div className="bg-surface-card rounded-xl border border-border-subtle p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-success-50 flex items-center justify-center">
+                <Truck className="w-4 h-4 text-success-500" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-text-strong">Envío gratis</p>
+                <p className="text-[11px] text-text-muted">
+                  {freeShipping
+                    ? 'La compradora no paga envío. Ideal para vender más rápido.'
+                    : 'La compradora paga el envío.'}
+                </p>
+              </div>
+            </div>
+            <button type="button"
+              onClick={() => setFreeShipping(o => !o)}
+              className={`relative w-12 h-7 rounded-full transition-colors duration-200
+                ${freeShipping ? 'bg-success-500' : 'bg-border-default'}`}>
+              <span className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow-sm
+                transition-transform duration-200
+                ${freeShipping ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
+            </button>
+          </div>
+        </div>
+
+        <button type="submit"
+          className="w-full h-12 bg-brand hover:bg-brand-hover text-text-on-brand
+            font-semibold rounded-lg transition-colors">
+          Publicar prenda
+        </button>
+
+        <p className="text-[10px] text-text-subtle text-center">
+          Al publicar aceptás que La Percha retiene el <strong>20%</strong> de comisión sobre el precio de venta.
+        </p>
+      </form>
+    </div>
+  )
+}

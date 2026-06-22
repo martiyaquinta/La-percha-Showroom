@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Heart } from "lucide-react"
+import { Heart, ShoppingBag, Truck, Plus } from "lucide-react"
 import { useShopStore } from "@/store/useShopStore"
 import type { Product } from "@/lib/types"
 
@@ -14,6 +14,23 @@ const CONDITION_LABEL: Record<string, string> = {
 export function ProductCard({ product }: { product: Product }) {
   const toggleFavorite = useShopStore(s => s.toggleFavorite)
   const isFav = useShopStore(s => s.isFavorite(product.id))
+  const addToCart = useShopStore(s => s.addToCart)
+  const cartItems = useShopStore(s => s.cart)
+  const isInCart = cartItems.some(i => i.productId === product.id)
+
+  function handleAddToCart(e: React.MouseEvent) {
+    e.preventDefault()
+    e.stopPropagation()
+    if (isInCart) return
+    addToCart({
+      productId: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      size: product.sizes[0],
+      store_type: product.store_type,
+    })
+  }
 
   return (
     <div className="relative group">
@@ -29,6 +46,28 @@ export function ProductCard({ product }: { product: Product }) {
               {CONDITION_LABEL[product.condition] ?? product.condition}
             </span>
           )}
+          {product.free_shipping && (
+            <span className="absolute top-2 right-9 px-1.5 py-0.5 rounded-full text-[9px] font-bold
+              bg-success-500 text-white flex items-center gap-0.5 shadow-sm">
+              <Truck className="w-2.5 h-2.5" />
+              Envío gratis
+            </span>
+          )}
+
+          {/* Quick add to cart — aparece al hover en desktop */}
+          <button onClick={handleAddToCart}
+            className={`absolute bottom-2 right-2 w-8 h-8 rounded-full flex items-center justify-center
+              transition-all duration-200 shadow-md
+              lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-2 lg:group-hover:translate-y-0
+              ${isInCart
+                ? 'bg-success-500 text-white'
+                : 'bg-surface-card text-text-strong hover:bg-brand hover:text-white active:scale-90'}`}>
+            {isInCart ? (
+              <ShoppingBag className="w-3.5 h-3.5 fill-white" />
+            ) : (
+              <Plus className="w-4 h-4" />
+            )}
+          </button>
         </div>
         <div className="mt-1.5 px-0.5 pr-7">
           <p className="text-xs text-text-muted uppercase tracking-wide">

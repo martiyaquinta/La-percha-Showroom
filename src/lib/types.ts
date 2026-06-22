@@ -1,6 +1,8 @@
 export type Condition = 'new_tag' | 'new' | 'like_new' | 'used'
 export type StoreType = 'oficial' | 'feria'
 export type SortOption = 'newest' | 'price_asc' | 'price_desc'
+export type Category = 'mujer' | 'hombre' | 'kids' | 'regaleria' | 'bazar' | 'decoracion'
+export type Subcategory = 'ropa' | 'calzado' | 'accesorios' | 'belleza' | 'bebes' | 'ninas' | 'ninos'
 
 export interface Seller {
   id: string
@@ -20,8 +22,11 @@ export interface Product {
   sizes: string[]
   condition: Condition
   store_type: StoreType
+  category: Category
+  subcategory?: Subcategory
   seller: Seller
   accepts_offers: boolean
+  free_shipping: boolean
   created_at: string
 }
 
@@ -36,8 +41,10 @@ export interface CartItem {
 
 export interface Filters {
   category: string
+  subcategory: string
   size: string
   condition: string
   priceMax: number
   sort: SortOption
+  search: string
 }

@@ -20,10 +20,12 @@ interface ShopStore {
 
 const DEFAULT_FILTERS: Filters = {
   category: 'all',
+  subcategory: '',
   size: '',
   condition: '',
   priceMax: 0,
   sort: 'newest',
+  search: '',
 }
 
 export const useShopStore = create<ShopStore>()((set, get) => ({

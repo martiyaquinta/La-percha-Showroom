@@ -11,8 +11,14 @@ const CONDITIONS = [
 ]
 const CATS = [
   { value: 'all', label: 'Todo' },
-  { value: 'oficial', label: 'Tienda Oficial' },
-  { value: 'feria', label: 'Feria de Ropa' },
+  { value: 'mujer', label: 'Mujer' },
+  { value: 'hombre', label: 'Hombre' },
+  { value: 'kids', label: 'Kids' },
+  { value: 'promos', label: 'Promos' },
+  { value: 'tienda_percha', label: 'Tienda Percha' },
+  { value: 'regaleria', label: '↳ Regalería' },
+  { value: 'bazar', label: '↳ Bazar' },
+  { value: 'decoracion', label: '↳ Decoración' },
 ]
 
 export function FilterSidebar() {
@@ -22,7 +28,7 @@ export function FilterSidebar() {
   return (
     <aside className="hidden lg:flex flex-col w-60 shrink-0
       border-r border-border-subtle px-4 py-6 gap-6
-      sticky top-(--nav-h) self-start max-h-[calc(100vh-var(--nav-h))] overflow-y-auto">
+      sticky top-[var(--nav-h)] self-start max-h-[calc(100vh-var(--nav-h))] overflow-y-auto">
 
       <div className="flex items-center justify-between">
         <h2 className="font-display text-lg text-text-strong">Filtros</h2>
