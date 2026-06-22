@@ -41,7 +41,7 @@ export default function SaldoPage() {
   if (retiroDone) {
     return (
       <div className="flex flex-col min-h-screen">
-        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+        <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-16">
           <Link href="/perfil" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
             <ArrowLeft className="w-4 h-4 text-text-muted" />
           </Link>
@@ -66,7 +66,7 @@ export default function SaldoPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-[var(--nav-h)]">
+      <header className="h-16 flex items-center gap-3 px-5 bg-bg-page border-b border-border-subtle sticky top-0 z-10 lg:top-16">
         <Link href="/perfil" className="w-9 h-9 rounded-full bg-surface-sunken flex items-center justify-center shrink-0">
           <ArrowLeft className="w-4 h-4 text-text-muted" />
         </Link>

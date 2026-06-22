@@ -173,7 +173,8 @@ export default function ClienteNavbar() {
           </div>
         </div>
 
-        {/* Row 2 — categories */}
+        {/* Row 2 — categories (solo en inicio) */}
+        {isHome && (
         <div className="h-10 flex items-center gap-7 px-8 border-t border-border-subtle" ref={navRef}>
           {NAV_CATS.map(cat => {
             const subs = SUBS_MAP[cat.value]
@@ -265,6 +266,7 @@ export default function ClienteNavbar() {
             )}
           </div>
         </div>
+        )}
       </nav>
 
       {/* ── Mobile bottom nav — 5 tabs ── */}

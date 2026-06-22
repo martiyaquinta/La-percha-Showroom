@@ -24,6 +24,35 @@ const TIENDA_CHIPS = [
   { value: 'decoracion', label: 'Decoración' },
 ]
 
+const MUJER_SUBS = [
+  { value: 'ropa', label: 'Ropa' },
+  { value: 'calzado', label: 'Calzado' },
+  { value: 'accesorios', label: 'Accesorios' },
+  { value: 'belleza', label: 'Belleza' },
+  { value: '', label: 'Ver todo' },
+]
+
+const HOMBRE_SUBS = [
+  { value: 'ropa', label: 'Ropa' },
+  { value: 'calzado', label: 'Calzado' },
+  { value: 'accesorios', label: 'Accesorios' },
+  { value: '', label: 'Ver todo' },
+]
+
+const KIDS_SUBS = [
+  { value: 'bebes', label: 'Bebés' },
+  { value: 'ninas', label: 'Niñas' },
+  { value: 'ninos', label: 'Niños' },
+  { value: '', label: 'Ver todo' },
+]
+
+const SUBS_MAP: Record<string, { value: string; label: string }[]> = {
+  mujer: MUJER_SUBS,
+  hombre: HOMBRE_SUBS,
+  kids: KIDS_SUBS,
+  tienda_percha: TIENDA_CHIPS,
+}
+
 function SectionHeader({
   icon, title, sub, onVerTodo,
 }: {
@@ -95,14 +124,18 @@ export default function HomePage() {
                 </button>
               ))}
             </div>
-            {isTienda && (
+            {SUBS_MAP[filters.category] && (
               <div className="flex gap-2 overflow-x-auto pt-2 pb-1">
-                {TIENDA_CHIPS.map(c => (
+                {SUBS_MAP[filters.category].map(c => (
                   <button key={c.value}
-                    onClick={() => setFilter('category', c.value)}
+                    onClick={() => filters.category === 'tienda_percha'
+                      ? setFilter('category', c.value)
+                      : setFilter('subcategory', c.value)}
                     className={`shrink-0 px-3 py-1 rounded-full text-[10px] font-semibold
                       whitespace-nowrap transition-colors border
-                      ${filters.category === c.value
+                      ${filters.category === 'tienda_percha'
+                        ? filters.category === c.value
+                        : filters.subcategory === c.value
                         ? 'bg-surface-inverse text-text-on-dark border-surface-inverse'
                         : 'bg-transparent border-border-default text-text-body'}`}>
                     {c.label}
@@ -117,7 +150,7 @@ export default function HomePage() {
             <div className="pb-24 lg:pb-10">
 
               {/* Tienda Oficial — scroll horizontal */}
-              <div className="mt-8 lg:mt-10 mb-6">
+              <div className="mt-8 lg:mt-16 mb-6">
                 <SectionHeader
                   icon={<Store className="w-4 h-4 text-matcha-600" />}
                   title="Tienda Oficial"
